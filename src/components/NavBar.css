@@ -1,0 +1,25 @@
+.NavBarItems {
+background: linear-gradient(90deg,rgb(110,94,254)0%,rgba(73,63,252,1)100%);
+height: 80px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font: size 1.2rem;
+}
+
+.NavBarLogo{
+    color: white;
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.NavBarListado{
+    list-style: none;
+    display: grid;
+grid-template-columns: repeat(5,auto);
+grid-gap: 10px;
+text-align: center;
+justify-content: end;
+margin-right: 2rem;
+}
