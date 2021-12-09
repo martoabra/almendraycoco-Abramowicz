@@ -1,6 +1,6 @@
 import React from 'react' 
 import './NavBar.css'
-
+import Carrito from './CartWidget.js'
 function NavBar() {
     return (
         <nav className="NavBarItems">
@@ -10,6 +10,7 @@ function NavBar() {
             <li>Productos</li>
             <li>FAQ</li>
             <li>Contactanos</li>
+            <Carrito></Carrito>
         </ul>
         </nav>
     )
