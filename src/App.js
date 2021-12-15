@@ -10,7 +10,7 @@ function App() {
     <div className="App">
         <NavBar/>
         <Greeting></Greeting>
-        <Contador></Contador>
+        <Contador stock="5" initial="1"/>
        
     </div>
   );

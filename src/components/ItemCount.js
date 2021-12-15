@@ -1,16 +1,29 @@
 import React, {useState} from "react";
 
 
-export default function Contador({stock, initial, onAdd}) {
- let  [state, setState] = useState (0);
+export default function Contador({stock, initial}) {
+ let  [state, setState] = useState (initial);
 
- const handleClick =()=>{
-   setState(++state)
+
+ const SumaClick =()=>{
+  if (state<stock){
+     setState(++state)
+  } 
+
+ }
+
+ const RestaClick =()=>{
+  if (state>0){
+     setState(--state)
+  } 
+
+
  }
   return (
     <div>
       <h1>Cantidad de Items {state}</h1>
-      <button onClick={handleClick}>Agregar al Carrito</button>
+      <button onClick={SumaClick}>Agregar al Carrito</button>
+      <button onClick={RestaClick}>Restar al Carrito</button>
     </div>
   );
 }
