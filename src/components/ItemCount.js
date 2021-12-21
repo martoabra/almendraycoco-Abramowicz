@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import './Item.css'
 
 export default function Contador({stock, initial}) {
  let  [state, setState] = useState (initial);
