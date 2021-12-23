@@ -1,24 +1,17 @@
 import React from "react";
-import './Item.css'
+import "./Item.css";
+import { Link } from "react-router-dom";
 
 function Item({ item }) {
-    return (
-        <div className="ItemContainer">
-            {/* <div>
-                {item.id }
-            </div> */}
-            <div>
-                {item.title }
-            </div>
-            <div>
-                {item.price }
-            </div>
-            <div>
-                {item.pictureUrl }
-            </div>
-        </div>
-    );
+  return (
+    <Link to={`/item/${item.id}`}>
+      <div className="ItemContainer">
+        <div>{item.title}</div>
+        <div>{item.price}</div>
+        <div>{item.pictureUrl}</div>
+      </div>
+    </Link>
+  );
 }
-   
 
-export default Item
+export default Item;

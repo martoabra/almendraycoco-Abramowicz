@@ -1,11 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Item from "./ItemDetail";
 
 function ItemDetailContainer({ items }) {
-  return (
-    items.map((producto) => {
-    return <Item key={producto.id} item={producto} />;
-  }));
+  const { id } = useParams();
+  return items.map((producto) => {
+    return producto.id == id && <Item key={producto.id} item={producto} />;
+  });
 }
 
 export default ItemDetailContainer;

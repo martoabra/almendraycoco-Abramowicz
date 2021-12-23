@@ -26,3 +26,10 @@ text-align: center;
 justify-content: end!important;
 grid-column-start:end!important;
 }
+
+.categorias{
+    list-style: none;
+    display: grid;
+    justify-items: center;
+    margin-right: 3%;
+}
