@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import './Item.css'
 import Contador from '../components/ItemCount'
 
+
 function ItemDetail({ item }) {
+    
     return (
         <div className="ItemContainer">
             {/* <div>
@@ -20,8 +22,13 @@ function ItemDetail({ item }) {
             <div>
                 {item.descripcion }
             </div>
-            <Contador stock="5" initial="1"/>
-        </div>
+
+        
+{state ? (
+  <><Contador stock="5" initial="1" onAdd={onAdd} /></>): )}
+</div>
+
+
     );
 }
    

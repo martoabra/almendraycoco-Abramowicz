@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetail from "./components/ItemDetail";
+import TotItems from "./components/ItemCount";
 
 const categorias = [
   { id: 1, nombre: "Queso", descripción: "articulos lácteos" },
@@ -88,7 +89,14 @@ setState(res.name)
   return (
     <BrowserRouter>
       <NavBar categorias={categorias} />
+      <TotItems/>
       <Routes>
+      <Route
+          exact
+          path="/cart"
+          element={<button>Finalizar Compra</button>}
+        />
+     
         <Route exact path="/" element={<ItemListContainer items={state} />} />
         <Route
           exact
