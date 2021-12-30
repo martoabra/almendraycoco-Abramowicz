@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetail from "./components/ItemDetail";
-import TotItems from "./components/ItemCount";
+import Basket from "./components/Basket";
 
 const categorias = [
   { id: 1, nombre: "Queso", descripción: "articulos lácteos" },
@@ -86,29 +86,36 @@ setState(res.name)
     getItem.then((res) => setState(res));
   }, []);
 
+  const [cartItems, setCartItems] = useState([]);
+const onAdd = (item) => {
+  const exist = cartItems.find(x => x.id === item.id)
+  if (exist){
+    setCartItems(cartItems.map(x => x.id === item.id ? {...exist, qty:exist.qty + 1} : x
+      ));
+  }
+  else{
+    setCartItems([...cartItems, { ...item, qty:1}]);
+  }
+}
   return (
     <BrowserRouter>
       <NavBar categorias={categorias} />
-      <TotItems/>
+      <div className="row">
       <Routes>
-      <Route
-          exact
-          path="/cart"
-          element={<button>Finalizar Compra</button>}
-        />
-     
-        <Route exact path="/" element={<ItemListContainer items={state} />} />
+        <Route exact path="/" element={<ItemListContainer onAdd={onAdd} items={state} />} />
         <Route
           exact
           path="/item/:id"
-          element={<ItemDetailContainer items={state} />}
+          element={<ItemDetailContainer onAdd={onAdd} items={state} />}
         />
         <Route
           exact
           path="/categoria/:id"
-          element={<ItemListContainer items={state} />}
+          element={<ItemListContainer onAdd={onAdd} items={state} />}
         />
       </Routes>
+      <Basket onAdd={onAdd} cartItems={cartItems} />
+      </div>
     </BrowserRouter>
   );
 }
